@@ -1,0 +1,3 @@
+Я работаю алиасами (да и вы наверное, тоже). kcf = kubectl create -f. kds = kubectl describe svc и тд
+
+daemonset/yaml и service.yaml разворачивают node-exporter

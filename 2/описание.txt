@@ -1,0 +1,14 @@
+конечно я брал helm chart из коммунити стэка prometheus. Он собран на основе версии от bitnami и для обновления скапов выполяняется helm upgrade. файл с апгрейдом (python-metric-update-prometheus.yaml) лежит в папке следующего задания, объединённый с кастомной метрикой:
+
+команда helm:
+helm install tensor prometheus-community/kube-prometheus-stack
+
+команда апгрейда helm:
+helm upgrade -f python-metric-update-prometheus.yml tensor prometheus-community/kube-prometheus-stack
+
+
+node-exporter - автометрики нод куба.
+tensor-node - нода на основе daemonset (из задания 1)
+python-metrics - нода на основе кастомного веб-сервера метрик (для задания 3)
+
+скрапы последних двух объединены в один файл python-metric-update-prometheus.yaml.

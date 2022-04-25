@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    meta.helm.sh/release-name: stable
+    meta.helm.sh/release-namespace: gpne
+  creationTimestamp: "2022-04-22T08:56:41Z"
+  labels:
+    app.kubernetes.io/instance: stable
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: grafana
+    app.kubernetes.io/version: 8.4.5
+    helm.sh/chart: grafana-6.26.0
+  name: stable-grafana
+  namespace: gpne
+  resourceVersion: "388132"
+  uid: 9c7b18ab-a236-4732-aa56-0c40058784f1
+spec:
+  allocateLoadBalancerNodePorts: true
+  clusterIP: 10.43.145.39
+  clusterIPs:
+  - 10.43.145.39
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: http-web
+    nodePort: 30248
+    port: 80
+    protocol: TCP
+    targetPort: 3000
+  selector:
+    app.kubernetes.io/instance: stable
+    app.kubernetes.io/name: grafana
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer: {}
